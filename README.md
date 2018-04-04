@@ -30,7 +30,7 @@ The package also papers over at least one [browser bug](https://github.com/erica
 In the Speech Synthesis API you create Utterances which you send to the Speech Synthesis API:
 
 ```js
-const utterance = new SpeechSynthesisUtterance(textToSpeak);
+const utterance = new SpeechSynthesisUtterance("Hi");
 utterance.voice = speechSynthesis.getVoices[0];
 speechSynthesis.speak(utterance);
 ```
