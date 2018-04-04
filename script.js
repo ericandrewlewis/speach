@@ -10,6 +10,13 @@ class Speach {
     this.loadAPI();
   }
 
+  // Check whether the browser supports the API.
+  browserSupportsFeature() {
+    return "speechSynthesis" in window;
+  }
+
+  // The SpeechSynthesis API in some browsers needs to be loaded,
+  // and in some not.
   loadAPI() {
     this.promiseChain = new Promise((resolve, reject) => {
       if (!this.browserSupportsFeature) {
@@ -29,6 +36,7 @@ class Speach {
     });
   }
 
+  // Set the voice for the next text to speak.
   voice(name) {
     if (!this.browserSupportsFeature) {
       return;
@@ -43,16 +51,7 @@ class Speach {
     });
   }
 
-  rate(rate) {
-    this.promiseChain = this.promiseChain.then(() => {
-      this._rate = rate;
-    });
-  }
-
-  browserSupportsFeature() {
-    return "speechSynthesis" in window;
-  }
-
+  // Speak the provided text.
   speak(textToSpeak) {
     if (!this.browserSupportsFeature) {
       return;
@@ -76,6 +75,7 @@ class Speach {
     });
   }
 
+  // Pass whatever is offered to the Promise chain.
   then(thenable) {
     this.promiseChain = this.promiseChain.then(thenable);
   }
