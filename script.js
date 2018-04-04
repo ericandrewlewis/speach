@@ -77,6 +77,9 @@ class Speach {
 
   // Pass whatever is offered to the Promise chain.
   then(thenable) {
+    if (!this.browserSupportsFeature) {
+      return;
+    }
     this.promiseChain = this.promiseChain.then(thenable);
   }
 }
