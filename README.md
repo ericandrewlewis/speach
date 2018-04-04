@@ -31,7 +31,7 @@ In the Speech Synthesis API you create Utterances which you send to the Speech S
 
 ```js
 const utterance = new SpeechSynthesisUtterance("Hi");
-utterance.voice = speechSynthesis.getVoices[0];
+utterance.voice = speechSynthesis.getVoices()[0];
 speechSynthesis.speak(utterance);
 ```
 
