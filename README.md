@@ -64,7 +64,7 @@ speaker
     .speak("When is the next train")
     .then(() => console.log("Google English Female checks the schedule"))
     .voice("UK Google English Female")
-    .speak("Just fine thank you")
+    .speak("8pm Fred")
     .then(() => console.log("End scene"));
 ```
 
