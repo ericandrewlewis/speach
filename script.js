@@ -1,4 +1,4 @@
-class Speaker {
+class Speach {
   constructor(afterAPILoaded) {
     this.browserSupportsFeature = this.browserSupportsFeature();
     if (!this.browserSupportsFeature) {
@@ -81,31 +81,24 @@ class Speaker {
   }
 }
 
-// Create a factory function so we only expose a shallow object as the public API
+// A factory function so we only expose a shallow object as the public API
 // which proxies function calls to the Speaker class.
-const createSpeaker = () => {
-  const speaker = new Speaker();
+const speach = () => {
+  const speach = new Speach();
   return {
     voice(name) {
-      speaker.voice(name);
+      speach.voice(name);
       return this;
     },
     speak(textToSpeak) {
-      speaker.speak(textToSpeak);
+      speach.speak(textToSpeak);
       return this;
     },
     then(thenable) {
-      speaker.then(thenable);
+      speach.then(thenable);
       return this;
     }
   };
 };
 
-const speaker = createSpeaker();
-
-speaker
-  .voice("Google UK English Female")
-  .speak("it was the best of times")
-  .voice("Bells")
-  .speak("it was the worst of times")
-  .then(() => console.log("the book is over"));
+export default speach;
