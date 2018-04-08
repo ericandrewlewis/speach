@@ -75,12 +75,12 @@ class Speach {
     });
   }
 
-  // Pass whatever is offered to the Promise chain.
-  then(thenable) {
+  // Put a callback onto the current Promise chain.
+  then(onFulfilled, onRejected) {
     if (!this.browserSupportsFeature) {
       return;
     }
-    this.promiseChain = this.promiseChain.then(thenable);
+    this.promiseChain = this.promiseChain.then(onFulfilled, onRejected);
   }
 }
 
