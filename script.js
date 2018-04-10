@@ -97,8 +97,8 @@ const speach = () => {
       speach.speak(textToSpeak);
       return this;
     },
-    then(thenable) {
-      speach.then(thenable);
+    then(onFulfilled, onRejected) {
+      speach.then(onFulfilled, onRejected);
       return this;
     }
   };
