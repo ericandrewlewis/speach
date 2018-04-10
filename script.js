@@ -84,8 +84,8 @@ class Speach {
   }
 }
 
-// A factory function so we only expose a shallow object as the public API
-// which proxies function calls to the Speaker class.
+// A factory function which uses the Module patern
+// to expose a limited public API.
 const speach = () => {
   const speach = new Speach();
   return {
