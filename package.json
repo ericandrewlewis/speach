@@ -9,7 +9,6 @@
     "rollup": "^0.57.1"
   },
   "scripts": {
-    "build-umd": "rollup script.js --o dist/bundle.js -f umd --name \"speach\"",
-    "postinstall": "build-umd"
+    "build-umd": "rollup script.js --o dist/bundle.js -f umd --name \"speach\""
   }
 }
