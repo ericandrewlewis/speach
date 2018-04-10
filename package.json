@@ -1,0 +1,14 @@
+{
+  "name": "speach",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/ericandrewlewis/speach.git",
+  "author": "Eric Lewis <eric.andrew.lewis@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "rollup": "^0.57.1"
+  },
+  "scripts": {
+    "build-umd": "rollup script.js --o dist/bundle.js -f umd --name \"speach\""
+  }
+}
