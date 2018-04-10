@@ -24,12 +24,10 @@ class Speach {
       }
       if (speechSynthesis.getVoices().length) {
         this.voices = speechSynthesis.getVoices();
-        this.voice();
         resolve();
       } else {
         speechSynthesis.addEventListener("voiceschanged", () => {
           this.voices = speechSynthesis.getVoices();
-          this.voice();
           resolve();
         });
       }
