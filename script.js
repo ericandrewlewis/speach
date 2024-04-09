@@ -69,6 +69,11 @@ class Speach {
           delete this.utterances[createdAt];
           resolve();
         };
+
+        utterance.onerror = evt => {
+          delete this.utterances[createdAt];
+          reject();
+        };
       });
     });
   }
@@ -79,6 +84,10 @@ class Speach {
       return;
     }
     this.promiseChain = this.promiseChain.then(onFulfilled, onRejected);
+  }
+
+  cancel() {
+    speechSynthesis.cancel();
   }
 }
 
@@ -97,6 +106,10 @@ const speach = () => {
     },
     then(onFulfilled, onRejected) {
       speach.then(onFulfilled, onRejected);
+      return this;
+    },
+    cancel() {
+      speach.cancel();
       return this;
     }
   };
