@@ -24,10 +24,12 @@ class Speach {
       }
       if (speechSynthesis.getVoices().length) {
         this.voices = speechSynthesis.getVoices();
+        this._voice = this.voices.find(voice => voice.default);
         resolve();
       } else {
         speechSynthesis.addEventListener("voiceschanged", () => {
           this.voices = speechSynthesis.getVoices();
+          this._voice = this.voices.find(voice => voice.default);
           resolve();
         });
       }
@@ -42,10 +44,9 @@ class Speach {
     this.promiseChain = this.promiseChain.then(() => {
       let found = this.voices.find(voice => voice.name === name);
       if (!found) {
-        found = this.voices.find(voice => voice.default);
+        return;
       }
       this._voice = found;
-      return;
     });
   }
 
